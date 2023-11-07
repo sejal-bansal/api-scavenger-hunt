@@ -34,6 +34,7 @@ public class WeatherApi {
     private static String makeApiRequest(String endpoint) {
         HttpClient client = HttpClient.newHttpClient();
         HttpRequest request = HttpRequest.newBuilder().uri(URI.create(endpoint)).build();
+        System.out.println(request);
 
         try {
             HttpResponse<String> response = client.send(request, HttpResponse.BodyHandlers.ofString());

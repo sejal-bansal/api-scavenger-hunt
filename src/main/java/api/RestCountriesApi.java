@@ -16,6 +16,7 @@ public class RestCountriesApi {
         HttpRequest requestBrazil = HttpRequest.newBuilder()
                 .uri(URI.create("https://restcountries.com/v3.1/name/brazil"))
                 .build();
+        System.out.println(requestBrazil);
 
         client.sendAsync(requestBrazil, HttpResponse.BodyHandlers.ofString())
                 .thenApply(HttpResponse::body)
@@ -26,6 +27,7 @@ public class RestCountriesApi {
         HttpRequest requestAfrica = HttpRequest.newBuilder()
                 .uri(URI.create("https://restcountries.com/v3.1/region/africa"))
                 .build();
+        System.out.println(requestAfrica);
 
         client.sendAsync(requestAfrica, HttpResponse.BodyHandlers.ofString())
                 .thenApply(HttpResponse::body)
@@ -36,6 +38,7 @@ public class RestCountriesApi {
     private static void parseBrazilInfo(String responseBody) {
         JSONArray countries = new JSONArray(responseBody);
         JSONObject brazil = countries.getJSONObject(0);
+        System.out.println("Brazil Info:"+countries);
 
         long population = brazil.getLong("population");
         double area = brazil.getDouble("area");

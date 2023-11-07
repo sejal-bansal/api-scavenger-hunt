@@ -18,6 +18,7 @@ public class CurrencyConverterApi {
         Request request = new Request.Builder()
                 .url(url)
                 .build();
+        System.out.println(request);
 
         try (Response response = httpClient.newCall(request).execute()) {
             if (!response.isSuccessful()) throw new IOException("Unexpected code " + response);
