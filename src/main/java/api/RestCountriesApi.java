@@ -12,7 +12,6 @@ public class RestCountriesApi {
     public static void main(String[] args) {
         HttpClient client = HttpClient.newHttpClient();
 
-        // Retrieve information about Brazil
         HttpRequest requestBrazil = HttpRequest.newBuilder()
                 .uri(URI.create("https://restcountries.com/v3.1/name/brazil"))
                 .build();
@@ -23,7 +22,6 @@ public class RestCountriesApi {
                 .thenAccept(RestCountriesApi::parseBrazilInfo)
                 .join();
 
-        // Retrieve a list of all countries in Africa
         HttpRequest requestAfrica = HttpRequest.newBuilder()
                 .uri(URI.create("https://restcountries.com/v3.1/region/africa"))
                 .build();
